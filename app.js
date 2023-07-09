@@ -38,9 +38,12 @@ restartButton.addEventListener("click", function () {
 
 function randomizeColorArray(numInput) {
   for (let i = 0; i < numInput / 2; i++) {
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
+    let r = Math.floor(Math.random() * 215);
+    i < 8 ? r += 5 * i : r += 5;
+    let g = Math.floor(Math.random() * 215);
+    i < 8 ? g += 5 * i : g += 5;
+    let b = Math.floor(Math.random() * 215);
+    i < 8 ? b += 5 * i : b += 5;
     let color = `rgb(${r}, ${g}, ${b})`;
     colArray.push(color);
     colArray.push(color);
