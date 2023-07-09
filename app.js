@@ -7,9 +7,7 @@ let card2 = null;
 let colArray = [];
 let numCards;
 let lowestScore = localStorage.getItem('score');
-console.log("localStorage.getItem('score'); ", lowestScore);
 let lowScoreHolder = document.getElementById("lowest-score");
-console.log("lowScoreHolder", lowScoreHolder);
 const restartButton = document.getElementById("restart");
 const startForm = document.querySelector('form');
 
@@ -74,7 +72,6 @@ function shuffle(array) {
 // this function loops over the array of colors
 // it also adds an event listener for a click for each card
 function createDivsForColors(colorArray) {
-  console.log("in createDivsForColors, lowestScore is ", lowestScore);
   lowestScore ? lowScoreHolder.setAttribute("placeholder", lowestScore) : lowScoreHolder.setAttribute("placeholder", 0);
 
   for (let i = 0; i < colorArray.length; i++) {
@@ -128,12 +125,15 @@ function handleCardClick(e) {
 
   if (cardsFlipped > 0 && cardsFlipped === colArray.length) {
     setTimeout(function () { alert("Game Over!"); }, 1000);
-    console.log("Gameover, score is ", score, "and lowestScore is ", lowestScore);
     if (score < lowestScore || !lowestScore) {
-      console.log("score < lowestScore || !lowestScore");
       lowScoreHolder.setAttribute("placeholder", score);
       lowestScore = score;
       localStorage.setItem('score', score);
     }
   }
 }
+
+
+
+
+
